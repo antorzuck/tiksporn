@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+<h4 class="text-white text-center"> Contact Us </h4>
+<br>
+<form method="POST" action="{% url 'cont' %}">
+{% csrf_token %}
+  <input type="text" class="form-control" placeholder="Enter name" name="name" required>
+  <br>
+<input type="email" class="form-control" placeholder="Enter email" name="mail" required>
+<br>
+<textarea class="form-control" name="text" rows="3" placeholder="What's matter?"></textarea>
+<br>
+<button class="btn btn-info w-100" type="submit">Submit</button>
+
+</form>
+</div>
+<hr class="bg-dark my-5">
+{% endblock %}

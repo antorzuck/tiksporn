@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<div class="container">
+     
+     <div class="bg-dark card">
+  <div class="card-body">
+  <h6 class="text-light">{{vid.title}} </h6>
+  <div class="dropdown">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{vid.user.username}} <i class="text-info fa fa-check-circle"></i>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{% url 'profile' vid.user.username %}">View Profile</a>
+    
+  </div>
+</div>
+
+      <center>
+      <video width="325" height="200" controls poster="{{vid.thumbnail.url" controlsList="nodownload">
+  <source src="{{vid.video_file.url}}" type="video/mp4">
+</video>
+      </center>
+     
+      
+     <a href="{% url 'lik' vid.id %}" class="float-right btn btn-outline-info btn-sm"><i class="fa fa-thumbs-up"></i>
+     ({{vid.likes}})</a>
+      
+  </div>
+</div>
+  
+    
+    <div class="border-0 my-3 card">
+  <div class="bg-dark text-white card-header">
+   <h4>Description</h4>
+  </div>
+  <div class="bg-dark card-body">
+   
+    <pre class="text-white card-text">{{vid.desc}}</pre>
+   
+  </div>
+</div>
+
+<section>
+
+<div class="card bg-dark ">
+  <h4 class="card-header text-white">Related</h4>
+  <div class="card-body bg-dark ">
+   
+   
+   <div class="row">
+   {% for r in rp %}
+   <div class="col-6">
+  <div class="border-0 my-2 bg-dark card" style="width: 10rem;">
+  <a href="{% url 'watch-video' r.id %}"><img class="card-img-top" src="{{r.thumbnail.url}}" alt="Card image cap"> </a>
+  <div class="card-body">
+    <a class="dn" href="{% url 'watch-video' r.id %}"><p class="d text-white">{{r.title}}</p></a>
+    <div class="text-info">
+    {{r.pub_date}}
+    </div>
+  </div>
+
+ </div>
+   </div>
+ {% endfor %}
+    </div>
+    
+    <div>
+   
+   
+   
+  </div>
+</div>
+
+
+<section>
+
+
+<div class="card border-0">
+  <h4 class="text-white card-header bg-dark">Comments</h4>
+  <div class="card-body bg-dark">
+  
+  
+  <form action="{% url 'comments' %}" method="POST">
+  {% csrf_token %}
+ <textarea class="form-control" placeholder="Enter your comment..." name="com" rows="2" required></textarea>
+ <br>
+ 
+ <input type="text" class="form-control" placeholder="Enter your name"  name="nam" required>
+ 
+ <input type="hidden" name="sno" value="{{vid.id}}">
+<br> 
+ <button class="btn btn-info" type="submit">Add </button>
+ </form>
+ 
+  </div>
+  
+  
+  <div class="border-0 card bg-dark">
+  <div class="card-body bg-dark">
+  
+  {% for c in allcom %}
+  
+  <div>
+    <strong class="text-white"><i class="fa fa-user" aria-hidden="true"></i> {{c.name}} </strong> <b> <span class="badge badge-pill badge-info">{{c.date}}</span> </b>
+    
+    </div>
+    
+    <div class="my-1">
+    <pre class="text-white"> {{c.body}} <pre> </div>
+    
+    
+  {% endfor %}
+  
+  
+  </div>
+</div>
+  
+  
+  
+</div>
+
+   </div>
+   </div>
+
+{% endblock %}

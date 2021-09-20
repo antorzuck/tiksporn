@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block style%}
+    .card-img-top{
+      height: 70vw;
+}
+   .dn{
+      text-decoration: none;
+    }
+
+    {% endblock %}
+    
+
+{% block body%}
+  
+  <div class="container">
+    <div class="row">
+   {% for vid in vids %}
+   <div class="col-6">
+  <div class="border-0 my-2 bg-dark card" style="width: 10rem;">
+  <a href="{% url 'watch-video' vid.id %}"><img class="card-img-top" src="{{vid.thumbnail.url}}" alt="Card image cap"> </a>
+  <div class="card-body">
+    <a class="dn" href="{% url 'watch-video' vid.id %}"><p class="d text-white">{{vid.title}}</p></a>
+    <div class="text-info">
+    {{vid.pub_date}}
+    </div>
+  </div>
+
+ </div>
+   </div>
+ {% endfor %}
+    </div>
+    
+    <div>
+    {% if vids.has_previous %}
+     
+      <a class="my-5 btn btn-warning" href="?page={{vids.previous_page_number}}"><i class="fa fa-arrow-circle-left"></i> Previous</a>
+   
+    
+    {% endif %}
+    </div>
+    
+    
+    
+    
+    <div class="text-center">
+    {% if vids.has_next %}
+   
+      <a class="my-5 btn btn-warning" href="?page={{vids.next_page_number}}"><i class="fa fa-arrow-circle-right"></i> Next</a>
+
+    
+    {% endif %}
+    </div>
+    
+ 
+    
+</div>
+
+
+<div>
+<h4 class="container text-center mt-5 text-light" > New Format For Viewing <span class="text-info">New Porn</span> </h4>
+<pre class="container text-white">
+
+<b> TikTok Porn </b> may be a more engaging, fun format for watching porn. The program is powered by AI and thus offers videos supported interests. Now it's easier to look for <b>porn</b> videos, there are not any ads, unnecessary buttons within the interface. Everything is straightforward and modern at an equivalent time.
+
+Your attention is obtainable all an equivalent music, interesting stories, only the most characters are <b>nude TikTokers</b> or beauties in clothes who, using video tricks, quickly remain without her, demonstrating beautiful figures and seductive body parts. <b>Naked Tik Tok </b>  isn't only eroticism, but also sex - hot, crazy, exciting, and even with catchy background music. the appliance provides access to both porn videos of famous porn stars and ordinary tik tokers - amateurs.
+
+The above isn't all the features of our application. Join TikTok 18 Plus and find out a replacement way of watching porn, new plots, new heroes. additionally , we don't delete or block accounts that upload porn content. We give complete freedom! Watch <b>Naked Tik Tok</b> and have real pleasure!
+We have an enormous selection of porn videos for each taste and you are doing not got to waste time trying to find suitable content.
+
+Our site is that the best and after studying it, you'll be convinced of it!
+   </pre>
+   
+   </div>
+   
+   <div>
+   <h4 class="text-center mt-3 text-light"> Best TikTok<span class="text-info">Porn Videos</span> </h4>
+	<pre class="container text-white">
+	
+Have you ever concept of some thing known as <b>TikTok porn</b>? And if there may be porn on TikTok, is it good? TiksPorn can solution those questions for you. There is <b>porn</b> on <b>TikTok</b>, and it is GREAT. TikTok is well-known for being a short-shape video app wherein customers take part in viral community-created challenges, lip sync and dance to music, and so on. So you may consider how the mixture of porn with TikTok may be like. It is lots greater attractive, hot, and amusing than the everyday porn you typically watch. Still the identical challenges, the identical music, however the performers are nude TikTokers. Or you may additionally see women with garments however with a few great little tricks, all that stuff will disappear, supporting women display the maximum stunning figures, sexiest elements in their bodies. Other instances you would possibly see men and women on TikTok fucking every different to the catchy history music. Very interesting, proper? There are many different cool things, however we can't listing them all. That's why increasingly more grownup content material creators, each porn stars and amateurs, are interested in and be a part of TikTok.
+
+However, you must additionally recognise that such grownup films are frequently eliminated in no time through the administrators, and money owed that submit them may also be banned. So in case you also are searching out such <b>18+</b> content material then you definitely are withinside the proper place. Here at TiksPorn, we supply a extensive variety of sexiest grownup TikTok porn films for all of your needs. You might not ought to waste time searching. We can say our web website online is one of the best, if now no longer the best, so please spend lots of time to explore!
+	
+	</pre>
+	</div>
+{% endblock %}

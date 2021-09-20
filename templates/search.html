@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+  <div class="container">
+  <h5 class="text-white text-center"> Your Search Result For  <span class="text-info"> {{query}}</span> - </h5>
+    <div class="row">
+   {% for s in sr %}
+   <div class="col-6">
+  <div class="border-0 my-2 bg-dark card" style="width: 10rem;">
+  <a href="{% url 'watch-video' s.id %}"><img class="card-img-top" src="{{s.thumbnail.url}}" alt="Card image cap"> </a>
+  <div class="card-body">
+    <a class="dn" href="{% url 'watch-video' s.id %}"><p class="d text-white">{{s.title}}</p></a>
+    <div class="text-info">
+    {{s.pub_date}}
+    </div>
+  </div>
+
+ </div>
+   </div>
+ {% endfor %}
+    </div>
+    </div>
+
+
+{% endblock %}

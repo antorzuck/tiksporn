@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container">
+<form action="{% url 'upload' %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+  
+  <input class="form-control" type="text" name="ttl" placeholder="Title"/>
+  <br>
+  <input class="form-control" type="text" name="des" placeholder="desc" />
+  <br>
+     <input class="form-control" type="file" name="vid"/>
+     <br>
+     
+     
+     <button class="btn btn-outline-info w-100" type="submit" >Upload</button>
+    </select>
+    
+  </select>
+  
+</form>
+</div>
+{% endblock %}
