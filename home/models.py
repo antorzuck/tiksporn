@@ -5,17 +5,11 @@ from taggit.managers import TaggableManager
 # Create your models here.
 
 class Video(models.Model):
-	CATEGORIES = (
-        (1, 'Boobs'),
-        (2, 'Ass'),
-        (3, 'Fuck'),
-        (4, 'Pussy'))
 	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	title = models.CharField(max_length=100)
 	desc = models.TextField()
 	video_file = models.FileField(upload_to='videos/')
 	thumbnail = models.FileField(upload_to='videos/thumbnail/')
-	category = models.IntegerField(choices=CATEGORIES)
 	pub_date = models.DateField(auto_now_add=True)
 	tags = TaggableManager()
 	likes = models.IntegerField(default=0)
