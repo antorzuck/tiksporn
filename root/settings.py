@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-5r(n@bd*7#4+^zj!u43xvq0fnl2z*93^!!a+glextulb=)+v5_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tiksporn.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
